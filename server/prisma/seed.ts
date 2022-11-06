@@ -35,17 +35,15 @@ async function main() {
 
   await prisma.game.create({
     data: {
-      date: '2022-11-03T12:00:00.315Z',
+      date: '2022-11-24T11:00:00.000Z',
       firstTeamCountryCode: 'BR',
-      secondTeamCountryCode: 'AR',
+      secondTeamCountryCode: 'RS',
 
-      // Criando palpite
       guesses: {
         create: {
-          firstTeamPoints: 2,
-          secondTeamPoints: 1,
+          firstTeamScore: 1,
+          secondTeamScore: 2,
 
-          // Conectar a um participante existente, pelo id do participante ou pelo id do bolão
           participant: {
             connect: {
               userId_poolId: {
@@ -57,5 +55,17 @@ async function main() {
         }
       }
     }
-  })
+  });
 }
+
+main()
+  .then(() => {
+    console.log('Done!');
+
+    process.exit(0);
+  })
+  .catch((e) => {
+    console.error(e);
+
+    process.exit(1);
+  });

@@ -4,8 +4,8 @@ import { useFonts, Roboto_400Regular, Roboto_500Medium, Roboto_700Bold} from '@e
 
 import { AuthContextProvider } from './src/contexts/AuthContext';
 
-import { SignIn } from './src/screens/SignIn';
-//import { New } from './src/screens/New';
+//import { SignIn } from './src/screens/SignIn';
+import { Routes } from './src/routes';
 import { Loading } from './src/components/Loading';
 
 import { THEME } from './src/styles/theme';
@@ -22,8 +22,8 @@ export default function App() {
         />
 
         {
-          fontsLoaded ? <SignIn /> : <Loading />
-          //fontsLoaded ? <New /> : <Loading />
+          //fontsLoaded ? <SignIn /> : <Loading />
+          fontsLoaded ? <Routes /> : <Loading />
         }
       </AuthContextProvider>
     </NativeBaseProvider>
