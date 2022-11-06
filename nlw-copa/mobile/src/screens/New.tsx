@@ -1,11 +1,9 @@
 import { useState } from 'react';
-
 import { Heading, Text, VStack, useToast } from 'native-base';
-
 import { api } from '../services/api';
-
-import { Button, Header, Input } from '../components';
-
+import { Header } from "../components/Header";
+import { Button } from "../components/Button";
+import { Input } from "../components/Input";
 import Logo from '../assets/logo.svg';
 
 export function New() {
@@ -27,7 +25,7 @@ export function New() {
       setIsLoading(true);
 
       await api.post('/pools', {
-        title,
+        title: title.toUpperCase()
       });
 
       toast.show({
@@ -64,7 +62,7 @@ export function New() {
           my={8}
           textAlign="center"
         >
-          Crei seu próprio bolão da copa {'\n'} e compartilhe entre amigos!
+          Crie seu próprio bolão da copa {'\n'} e compartilhe entre amigos!
         </Heading>
 
         <Input
